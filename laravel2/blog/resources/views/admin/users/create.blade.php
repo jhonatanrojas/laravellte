@@ -33,19 +33,22 @@ Crear Usuario
 </div>
 
 <div class="form-group">
-{!! Form::password('password', null,['class'=>'form-control','placeholder'=>'clave'])  !!}
+{!! Form::password('password', ['class'=>'form-control','placeholder'=>'clave'])  !!}
 </div>
 
 
 <div class="form-group">
 {!! Form::select('type',['admin'=>'Administrador',
-                        'meber'=>'Mienbro'])  !!}
+                        'meber'=>'Mienbro'], null,['class'=>'form-control'])  !!}
 </div>
             </div>
 
-          
+           <div class="row">       
+                 <div class="col-md-3 col-lg-offset-3">   
 {!! Form::submit('Registrar',['class'=>'btn btn-lg btn-primary m-t-3'])  !!}
 {!! Form::close() !!}
+  </div>
+  </div>
   </div>
          </div>
 

@@ -39,7 +39,7 @@
     @yield('contect')
 
     </section>
-    <div>Content</div>
+
   </div>
 
 
