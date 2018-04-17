@@ -22,6 +22,17 @@ Crear Usuario
         <div class="row">
           <div class="col-md-6 col-lg-offset-3">
        
+
+       @if(session()->has('msj'))
+<div class="alert alert-success">
+  <strong>{{ session('msj')}} </strong> 
+</div>
+@else
+
+<div class="alert alert-success">
+  <strong>Oop!, No se regitro el Usuario</strong> 
+</div>
+@endif
             <div class="p-x-1">
        
 <div class="form-group">

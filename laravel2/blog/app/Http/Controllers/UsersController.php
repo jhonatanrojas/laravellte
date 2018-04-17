@@ -15,7 +15,7 @@ class UsersController extends Controller
     {
     
 
-      $users= User::orderBy('id','ASC')->paginate(2);
+      $users= User::orderBy('id','ASC')->paginate(5);
         return view('admin.users.index')->with('users',$users);
     }
 
@@ -40,12 +40,14 @@ class UsersController extends Controller
 
      $user = new User($request->all());
         $user->password = bcrypt($request->password);
-        $user->save();
-        dd('usuario Creado');    
+        if($user->save()){ 
 
+return back()->with('msj', 'Usuario Registrado Exitosamente');
+    }else{
+return back();
     }
 
-    /**
+   } /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -87,6 +89,15 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+$user = User::find($id);
+//return redirect()->route('admin.user.index')
+
+if($user->delete()){ 
+
+return back()->with('msj', 'Usuario '. $user->name . ' Registrado Exitosamente');
+    }else{
+return back();
+    }
+
     }
 }
