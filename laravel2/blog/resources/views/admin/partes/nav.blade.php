@@ -10,10 +10,10 @@
 
     <ul class="px-nav-content">
       <li class="px-nav-item active">
-        <a href="index.html"><i class="px-nav-icon ion-home"></i><span class="px-nav-label">Main page</span></a>
+        <a href="{{route('users.create')}}"><i class="px-nav-icon ion-home"></i><span class="px-nav-label">Registrar Usuario</span></a>
       </li>
       <li class="px-nav-item">
-        <a href="second.html"><i class="px-nav-icon ion-star"></i><span class="px-nav-label">Second page</span></a>
+        <a href="{{route('users.index')}}"><i class="px-nav-icon ion-star"></i><span class="px-nav-label">Consultar Usuario</span></a>
       </li>
     </ul>
   </nav>

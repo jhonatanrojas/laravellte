@@ -8,14 +8,16 @@ Lista de Usuarios
  
 
 @section('contect')
-<div class="page-header">
-      <h1>Lista de Usuarios</h1>
-    </div>
+
 
  <div class="tab-content p-y-4">
 
  <div class="row">
  <div class="col-md-6 col-lg-offset-3">
+  <div class="page-header">
+    <br>
+      <h1>Lista de Usuarios</h1>
+    </div>
  @if(session()->has('msj'))
 <div class="alert alert-warning">
   <strong>{{ session('msj')}} </strong> 
@@ -57,7 +59,7 @@ Lista de Usuarios
 
           
 
-             <a href=""class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+             <a href="{{route('users.edit',$user->id)}}"class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
              </td>
       </tr>
     @endforeach

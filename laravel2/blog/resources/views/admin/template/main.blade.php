@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
    
-    <title>@yield('title','Default') pagina de prueba</title>
+    <title>@yield('title','Default')| Jhonatan</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -47,7 +48,7 @@
 
   <!-- Footer -->
   <footer class="px-footer px-footer-bottom">
-    Copyright © 2017 Your Company. All rights reserved.
+    Copyright © 201 JHONATAN ROJAS. All rights reserved.
   </footer>
 <script src="{{ asset('tema/js/app.js') }}"></script>
 <script src="{{ asset('tema/js/bootstrap.min.js') }}"></script>

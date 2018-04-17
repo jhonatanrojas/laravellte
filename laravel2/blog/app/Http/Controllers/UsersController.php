@@ -67,7 +67,11 @@ return back();
     public function edit($id)
     {
         //
-    }
+
+       $user=User::find($id);
+       return view('admin.users.edit')->with('user',$user);
+
+           }
 
     /**
      * Update the specified resource in storage.
@@ -79,8 +83,20 @@ return back();
     public function update(Request $request, $id)
     {
         //
-    }
+     $user= User::find($id);
+     $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
 
+if($user->save()){ 
+
+
+ return redirect()->route('users.index')->with('msj', 'Usuario '. $user->name . ' Modificado Exitosamente');
+    }else{
+return back();
+
+    }
+}
     /**
      * Remove the specified resource from storage.
      *

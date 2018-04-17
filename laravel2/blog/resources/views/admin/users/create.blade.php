@@ -29,9 +29,7 @@ Crear Usuario
 </div>
 @else
 
-<div class="alert alert-success">
-  <strong>Oop!, No se regitro el Usuario</strong> 
-</div>
+
 @endif
             <div class="p-x-1">
        
