@@ -9,6 +9,8 @@ Crear Usuario
 
 
 @section('contect')
+
+
 <div class="page-header">
       <h1>Crear Usuario</h1>
     </div>
@@ -21,7 +23,23 @@ Crear Usuario
       <div class="tab-pane fade in active" id="account-profile">
         <div class="row">
           <div class="col-md-6 col-lg-offset-3">
-       
+    
+
+
+      <!-- ERRORES -->
+ @if(count($errors)>0)
+ 
+<div class="alert alert-danger" role="alert">
+<ul> 
+@foreach($errors->all() as $error)
+<li> {{$error}} </li>
+
+@endforeach
+</ul>
+</div>
+ @endif  
+      <!-- ERRORES -->
+
 
        @if(session()->has('msj'))
 <div class="alert alert-success">
