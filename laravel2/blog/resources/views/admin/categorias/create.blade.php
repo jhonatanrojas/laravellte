@@ -11,11 +11,11 @@ Crear Usuario
 @section('contect')
 
 
-<div class="page-header">
-      <h1>Crear Usuario</h1>
+<div class="page-header" style="text-align: center">
+      <h1>Crear Categoria</h1>
     </div>
    
-{!! Form::open(['route'=>'users.store','method'=>'POST'])  !!}
+{!! Form::open(['route'=>'categorias.store','method'=>'POST'])  !!}
  <div class="tab-content p-y-4">
 
       <!-- Profile tab -->
@@ -30,32 +30,16 @@ Crear Usuario
       @include('admin.partes.errors')
       <!-- ERRORES -->
 
-
-
-       <!-- alertas -->
+      <!-- alertas -->
       @include('admin.partes.alertmsj')
  <!-- alertas -->
-
- 
             <div class="p-x-1">
        
 <div class="form-group">
-{!! Form::text('name', null,['class'=>'form-control','placeholder'=>'nombre'])  !!}
+  <label>Nombre Categoria</label>
+{!! Form::text('name', null,['class'=>'form-control','placeholder'=>'Ingrese Categoria'])  !!}
 </div>
 
-<div class="form-group">
-{!! Form::email('email', null,['class'=>'form-control','placeholder'=>'email'])  !!}
-</div>
-
-<div class="form-group">
-{!! Form::password('password', ['class'=>'form-control','placeholder'=>'clave'])  !!}
-</div>
-
-
-<div class="form-group">
-{!! Form::select('type',['admin'=>'Administrador',
-                        'meber'=>'Mienbro'], null,['class'=>'form-control'])  !!}
-</div>
             </div>
 
            <div class="row">       

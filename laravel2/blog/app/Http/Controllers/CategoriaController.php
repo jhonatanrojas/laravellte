@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreBlogPost;
+use App\Categoria;
 
-use App\User;
-
-class UsersController extends Controller
+use App\Http\Requests\categoriaRequest;
+class CategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +15,10 @@ class UsersController extends Controller
      */
     public function index()
     {
-    
+        //
 
-      $users= User::orderBy('id','ASC')->paginate(5);
-        return view('admin.users.index')->with('users',$users);
+        $categorias = categoria::orderBy('id', 'DESC')->paginate(10);
+          return view('admin.categorias.index')->with('categorias',$categorias);
     }
 
     /**
@@ -30,7 +28,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-  return view('admin.users.create');
+        //
+        return view('admin.categorias.create');
     }
 
     /**
@@ -39,19 +38,23 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBlogPost $request)
-    { 
+    public function store(categoriaRequest $request)
+    {
+        
+    
 
-     $user = new User($request->all());
-        $user->password = bcrypt($request->password);
-        if($user->save()){ 
+             $categoria = new Categoria($request->all());
+        
+        if($categoria->save()){ 
 
-return back()->with('msj', 'Usuario Registrado Exitosamente');
+return redirect()->route('categorias.index')->with('msj', 'Categoria ' .$categoria->name. ' Registrada Exitosamente');
     }else{
-return back()->with('error', 'Ocurrio un Error al registrar Este Usuario');
+return back()->with('error', 'Ocurrio un Error al registrar Esta Categoria');
     }
 
-   } /**
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -71,11 +74,7 @@ return back()->with('error', 'Ocurrio un Error al registrar Este Usuario');
     public function edit($id)
     {
         //
-
-       $user=User::find($id);
-       return view('admin.users.edit')->with('user',$user);
-
-           }
+    }
 
     /**
      * Update the specified resource in storage.
@@ -87,20 +86,8 @@ return back()->with('error', 'Ocurrio un Error al registrar Este Usuario');
     public function update(Request $request, $id)
     {
         //
-     $user= User::find($id);
-     $user->fill($request->all());
-    
-if($user->save()){ 
-
-
- return redirect()->route('users.index')->with('msj', 'Usuario '. $user->name . ' Modificado Exitosamente');
-    }else{
-
-        return back()->with('error', 'Ocurrio un Error al Modificar Este Usuario');
-
-
     }
-}
+
     /**
      * Remove the specified resource from storage.
      *
@@ -109,17 +96,8 @@ if($user->save()){
      */
     public function destroy($id)
     {
-$user = User::find($id);
-//return redirect()->route('admin.user.index')
+        //
 
-if($user->delete()){ 
-
-return back()->with('msj', 'Usuario '. $user->name . ' Registrado Exitosamente');
-    }else{
-
-        return back()->with('error', 'Ocurrio un  al Eliminar este');
-
-    }
-
+        dd($id);
     }
 }

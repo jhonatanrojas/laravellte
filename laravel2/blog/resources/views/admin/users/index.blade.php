@@ -18,13 +18,16 @@ Lista de Usuarios
     <br>
       <h1>Lista de Usuarios</h1>
     </div>
- @if(session()->has('msj'))
-<div class="alert alert-warning">
-  <strong>{{ session('msj')}} </strong> 
-</div>
 
 
-@endif
+
+      <!-- ERRORES -->
+      @include('admin.partes.errors')
+      <!-- ERRORES -->
+
+      <!-- alertas -->
+      @include('admin.partes.alertmsj')
+ <!-- alertas -->
 
   <table class="table table-hover">
     <thead>
